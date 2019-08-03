@@ -15,16 +15,19 @@ public class PlayerPlatformerController : PhysicsObject
   private new Rigidbody2D rigidbody;
   private EchoEffect echoEffect;
 
-  private bool flipped = false;
+  public bool flipped = false;
   private bool dashing = false;
   private bool canDash = true;
   private float dashingCounter = 0f;
+
+  private PlayerCombat playerCombat;
 
   private void Awake()
   {
     animator = GetComponent<Animator>();
     rigidbody = GetComponent<Rigidbody2D>();
     echoEffect = GetComponent<EchoEffect>();
+    playerCombat = GetComponent<PlayerCombat>();
   }
 
   override protected void Update()
@@ -83,11 +86,11 @@ public class PlayerPlatformerController : PhysicsObject
         }
       }
 
-      if (move.x < -0.01f && !flipped)
+      if (move.x < -0.01f && !flipped && !playerCombat.chargingSpear)
       {
         FlipLeft();
       }
-      else if (move.x > 0.01f && flipped)
+      else if (move.x > 0.01f && flipped && !playerCombat.chargingSpear)
       {
         FliptRight();
       }
@@ -98,12 +101,12 @@ public class PlayerPlatformerController : PhysicsObject
         var mouseDir = mousePos - gameObject.transform.position;
         mouseDir.z = 0.0f;
 
-        if (mousePos.x < transform.position.x && !flipped)
+        if (mousePos.x < transform.position.x && !flipped && !playerCombat.chargingSpear)
         {
           FlipLeft();
         }
 
-        if (mousePos.x > transform.position.x && flipped)
+        if (mousePos.x > transform.position.x && flipped && !playerCombat.chargingSpear)
         {
           FliptRight();
         }
@@ -128,13 +131,13 @@ public class PlayerPlatformerController : PhysicsObject
     }
   }
 
-  private void FlipLeft()
+  public void FlipLeft()
   {
     transform.rotation = Quaternion.Euler(0, 180f, 0);
     flipped = true;
   }
 
-  private void FliptRight()
+  public void FliptRight()
   {
     transform.rotation = Quaternion.Euler(0, 0, 0);
     flipped = false;

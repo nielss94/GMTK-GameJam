@@ -548,6 +548,7 @@ Transform:
   - {fileID: 7684097173747719920}
   - {fileID: 3397401820136565481}
   - {fileID: 4565317725000348365}
+  - {fileID: 6511376249785846455}
   m_Father: {fileID: 2214189705040135823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -944,16 +945,16 @@ PolygonCollider2D:
       - {x: 36.482075, y: 11.182733}
       - {x: 36.399273, y: 10.372258}
       - {x: 31.20992, y: 10.470131}
-      - {x: 31.671244, y: 8.091147}
-      - {x: 32.207718, y: 6.764608}
-      - {x: 33.264637, y: 7.152676}
-      - {x: 33.588238, y: 7.359684}
-      - {x: 34.181763, y: 7.0176024}
-      - {x: 35.404663, y: 7.687898}
-      - {x: 35.61122, y: 6.8619995}
-      - {x: 36.116436, y: 6.972725}
-      - {x: 36.140903, y: 6.0168715}
-      - {x: 36.79702, y: 6.7102885}
+      - {x: 31.388266, y: 9.266598}
+      - {x: 32.283905, y: 8.506016}
+      - {x: 33.210217, y: 8.0669155}
+      - {x: 33.403214, y: 7.80592}
+      - {x: 33.637573, y: 7.8447714}
+      - {x: 35.230522, y: 7.067521}
+      - {x: 35.35001, y: 6.785813}
+      - {x: 35.931408, y: 6.678862}
+      - {x: 36.423885, y: 6.2345476}
+      - {x: 36.753483, y: 5.872236}
       - {x: 36.829956, y: 5.3725824}
       - {x: 37.675663, y: 3.9555054}
       - {x: 36.90002, y: 3.650299}
@@ -1254,7 +1255,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 8447740328613330536, guid: b6ddc2a21bfdded49800e32dcb85e9d6,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.20784314}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1457,6 +1458,87 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.34, y: 1.4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &6466009538503653955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6511376249785846455}
+  - component: {fileID: 5282865849451390923}
+  m_Layer: 0
+  m_Name: Background_2_Pillar_3 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6511376249785846455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466009538503653955}
+  m_LocalRotation: {x: -0, y: -0, z: 0.16762637, w: 0.98585063}
+  m_LocalPosition: {x: 12.52, y: 10.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4166868054380950129}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 19.300001}
+--- !u!212 &5282865849451390923
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466009538503653955}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 2333563473579223328, guid: b6ddc2a21bfdded49800e32dcb85e9d6,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.28, y: 21.89}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

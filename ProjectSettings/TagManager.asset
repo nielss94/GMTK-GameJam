@@ -14,13 +14,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Spear
+  - Player
+  - Level
+  - PickUp
+  - SpearHitDetection
+  - Enemy
+  - ForceField
   - 
   - 
   - 
