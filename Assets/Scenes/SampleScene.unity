@@ -265,6 +265,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &484660839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5566718224124238253, guid: 46fece4b6a84e4c95a966efbe8caf7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1634208632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &484660840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484660839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bea995a5de22ec4b89d6b4bf35530a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spear: {fileID: 1586956678302187371, guid: e78d3befa970c5445ad10ffa7560e51c, type: 3}
+  gearedSpear: {fileID: 1704307594}
+  spearSpawnpoint: {fileID: 0}
+  wearingSpear: 1
+  chargingSpear: 0
+  chargedForce: 0
+  timeToMaxCharge: 0
+  throwForce: 28
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +484,12 @@ PrefabInstance:
 --- !u!4 &1634208633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5566718224124238242, guid: 46fece4b6a84e4c95a966efbe8caf7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1634208632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1704307594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5566718224448162475, guid: 46fece4b6a84e4c95a966efbe8caf7e5,
     type: 3}
   m_PrefabInstance: {fileID: 1634208632}
   m_PrefabAsset: {fileID: 0}
@@ -678,6 +710,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684097173747719920, guid: cfee38651f1839d45a337b3e010c1cd8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684097173747719920, guid: cfee38651f1839d45a337b3e010c1cd8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.29
       objectReference: {fileID: 0}
     - target: {fileID: 5831506971105104927, guid: cfee38651f1839d45a337b3e010c1cd8,
         type: 3}

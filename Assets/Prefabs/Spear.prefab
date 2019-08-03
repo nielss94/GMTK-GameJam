@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spearPickup: {fileID: 566879460}
+  onHitEffect: {fileID: 1712453361733440992, guid: b5c0e04ae4c18ea4587ad82bf116d132,
+    type: 3}
 --- !u!60 &1153796544
 PolygonCollider2D:
   m_ObjectHideFlags: 0
