@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74da55a5d82d7d468a06bcf649d4760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceFieldInstance: {fileID: 0}
 --- !u!58 &566879459
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -107,6 +108,9 @@ MonoBehaviour:
   spearPickup: {fileID: 566879460}
   onHitEffect: {fileID: 1712453361733440992, guid: b5c0e04ae4c18ea4587ad82bf116d132,
     type: 3}
+  forceField: {fileID: 8821866659810330171, guid: 043e940e889c2014cbd341964cef9f5a,
+    type: 3}
+  forceFieldInstance: {fileID: 0}
 --- !u!60 &1153796544
 PolygonCollider2D:
   m_ObjectHideFlags: 0
