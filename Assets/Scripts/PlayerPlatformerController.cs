@@ -51,42 +51,16 @@ public class PlayerPlatformerController : PhysicsObject
   {
     if (dashing && dashingCounter <= 0)
     {
-      rigidbody.velocity = Vector2.zero;
+      rigidbody.velocity /= 2;
       dashing = false;
     }
 
     if (!dashing)
     {
-      if (canDash && Input.GetButtonDown("Dash"))
-      {
-        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var mouseDir = mousePos - gameObject.transform.position;
-        mouseDir.z = 0.0f;
-
-        if (mousePos.x < transform.position.x && !flipped)
-        {
-          FlipLeft();
-        }
-
-        if (mousePos.x > transform.position.x && flipped)
-        {
-          FliptRight();
-        }
-
-        mouseDir = mouseDir.normalized;
-
-
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.AddForce(mouseDir * dashSpeed, ForceMode2D.Impulse);
-
-        dashingCounter = dashTime;
-        dashing = true;
-        canDash = false;
-      }
-
       if (grounded && !canDash && !dashing)
       {
         canDash = true;
+        rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
       }
 
       Vector2 move = Vector2.zero;
@@ -113,6 +87,33 @@ public class PlayerPlatformerController : PhysicsObject
       else if (move.x > 0.01f && flipped)
       {
         FliptRight();
+      }
+
+      if (canDash && Input.GetButtonDown("Dash"))
+      {
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mouseDir = mousePos - gameObject.transform.position;
+        mouseDir.z = 0.0f;
+
+        if (mousePos.x < transform.position.x && !flipped)
+        {
+          FlipLeft();
+        }
+
+        if (mousePos.x > transform.position.x && flipped)
+        {
+          FliptRight();
+        }
+
+        mouseDir = mouseDir.normalized;
+
+
+        rigidbody.velocity = Vector2.zero;
+        rigidbody.AddForce(mouseDir * dashSpeed, ForceMode2D.Impulse);
+
+        dashingCounter = dashTime;
+        dashing = true;
+        canDash = false;
       }
 
       animator.SetBool("grounded", grounded);

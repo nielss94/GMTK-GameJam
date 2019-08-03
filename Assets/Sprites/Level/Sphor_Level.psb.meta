@@ -262,28 +262,6 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -700, y: 6481}
-  - name: Platform_1 copy
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 8042
-      y: 4625
-      width: 124
-      height: 74
-    spriteID: 60bdbbd8d61ad8e4aacb6f7e763828f1
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4384, y: 4127}
   - name: Platform_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -394,28 +372,6 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 5631, y: 3452}
-  - name: Layer 2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 8042
-      y: 4707
-      width: 3
-      height: 3
-    spriteID: c2798372942449c428945a0f7d875326
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 7270, y: 4272}
   platformSettings:
   - name: Default
     overridden: 1
@@ -445,20 +401,6 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Layer 2
-    spriteName: Layer 2
-    isGroup: 0
-    parentIndex: -1
-    spriteID: c2798372942449c428945a0f7d875326
-    layerID: 33
-    mosaicPosition: {x: 8042, y: 4707}
-  - name: Platform_1 copy
-    spriteName: Platform_1 copy
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 60bdbbd8d61ad8e4aacb6f7e763828f1
-    layerID: 32
-    mosaicPosition: {x: 8042, y: 4625}
   - name: Platform_1
     spriteName: Platform_1
     isGroup: 0
@@ -518,35 +460,35 @@ ScriptedImporter:
   - name: Background_2_Pillar
     spriteName: Background_2_Pillar
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 7
     spriteID: 93d32f437b4c7b04db9e426880ddb1f8
     layerID: 24
     mosaicPosition: {x: 3141, y: 4951}
   - name: Background_2_Pillar
     spriteName: Background_2_Pillar_1
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 7
     spriteID: d69560b817968494291b9b6ad2915c2d
     layerID: 23
     mosaicPosition: {x: 4, y: 4951}
   - name: Background_2_Pillar
     spriteName: Background_2_Pillar_2
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 7
     spriteID: 0955d12e35a77c64695bff22bde59dda
     layerID: 22
     mosaicPosition: {x: 1555, y: 4951}
   - name: Background_2_Pillar
     spriteName: Background_2_Pillar_3
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 7
     spriteID: 91d23cfd8fdc313448a4be0a824c6baf
     layerID: 21
     mosaicPosition: {x: 4888, y: 4951}
   - name: Background_3
     spriteName: Background_3
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 7
     spriteID: fe9442a191c09a346836ec4557d26be8
     layerID: 20
     mosaicPosition: {x: 4, y: 4398}
