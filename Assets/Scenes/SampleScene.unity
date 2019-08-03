@@ -748,7 +748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221525438}
   - component: {fileID: 221525437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  gameMode: 2
+  gameMode: 1
 --- !u!1001 &1634208632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5146,7 +5146,7 @@ PrefabInstance:
     - target: {fileID: 2214189705040135823, guid: cfee38651f1839d45a337b3e010c1cd8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2214189705040135823, guid: cfee38651f1839d45a337b3e010c1cd8,
         type: 3}
