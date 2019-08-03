@@ -8,10 +8,14 @@ public class Patrol : MonoBehaviour
   [SerializeField] private float groundDetectionDistance = 2f;
   [SerializeField] private float wallDetectionDistance = 0.2f;
   [SerializeField] private Transform detection = null;
-  [SerializeField] private float playerDetectionDistance = 3f;
+  [SerializeField] private Vector2 playerDetectionDistance = new Vector2(4f, 4f);
+  [SerializeField] private float playerDetectionRange = 5f;
+  [SerializeField] private float timeUntilNewPatrol = 2f;
+  [SerializeField, Range(0, 1)] private float seePlayerSpeedIncrease;
 
   private Transform target;
   private bool movingRight = false;
+  private float timeUntilNewPatrolCounter = 0f;
 
   private Animator animator;
 
@@ -22,18 +26,40 @@ public class Patrol : MonoBehaviour
     animator.SetTrigger("Walking");
   }
 
+  private void OnDrawGizmos()
+  {
+    Debug.DrawRay(detection.position, movingRight ? Vector2.right * playerDetectionRange : Vector2.left * playerDetectionRange, Color.green);
+  }
+
   private void Update()
   {
-    RaycastHit2D playerHit = Physics2D.Raycast(detection.position, Vector2.right, playerDetectionDistance);
+    RaycastHit2D playerHit = Physics2D.Raycast(detection.position, movingRight ? Vector2.right : Vector2.left, playerDetectionRange);
     if (playerHit.collider != null && playerHit.collider.CompareTag("Player"))
     {
       target = playerHit.collider.transform;
+      timeUntilNewPatrolCounter = timeUntilNewPatrol;
     }
+    else
+    {
+      if (target != null)
+      {
+        if (timeUntilNewPatrolCounter <= 0)
+        {
+          target = null;
+        }
+        else
+        {
+          timeUntilNewPatrolCounter -= Time.deltaTime;
+        }
+      }
+    }
+
+    RaycastHit2D wallHit = Physics2D.Raycast(detection.position, movingRight ? Vector2.right : Vector2.left, wallDetectionDistance);
+
 
     if (target == null)
     {
       RaycastHit2D groundHit = Physics2D.Raycast(detection.position, Vector2.down, groundDetectionDistance);
-      RaycastHit2D wallHit = Physics2D.Raycast(detection.position, Vector2.right, wallDetectionDistance);
       if (groundHit.collider == null || (wallHit.collider != null && wallHit.collider.CompareTag("Level")))
       {
         if (movingRight)
@@ -66,7 +92,15 @@ public class Patrol : MonoBehaviour
       }
     }
 
+    if (!(target != null && (wallHit.collider != null && wallHit.collider.CompareTag("Level"))))
+    {
+      transform.Translate(Vector2.right * moveSpeed * (target != null ? 1 + seePlayerSpeedIncrease : 1) * Time.deltaTime);
+      animator.SetTrigger("Walking");
+    }
+    else
+    {
+      animator.SetTrigger("Idle");
+    }
 
-    transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
   }
 }
