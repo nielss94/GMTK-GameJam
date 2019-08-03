@@ -18,6 +18,9 @@ public class PlayerCombat : MonoBehaviour
 
     private PlayerPlatformerController playerController;
 
+    [SerializeField]private SpriteRenderer throwingHand;
+    [SerializeField]private SpriteRenderer leftHand;
+
     private Spear currentSpear;
 
     private void Awake() {
