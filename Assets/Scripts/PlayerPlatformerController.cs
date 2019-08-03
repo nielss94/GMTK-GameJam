@@ -9,20 +9,22 @@ public class PlayerPlatformerController : PhysicsObject
   [SerializeField] private float jumpTakeOffSpeed = 7;
   [SerializeField] private float dashSpeed = 7f;
   [SerializeField] private float dashTime = 0.5f;
+  [SerializeField] private Color dashColor = Color.yellow;
 
   private Animator animator;
   private new Rigidbody2D rigidbody;
+  private EchoEffect echoEffect;
 
   private bool flipped = false;
   private bool dashing = false;
   private bool canDash = true;
   private float dashingCounter = 0f;
 
-  // Use this for initialization
-  void Awake()
+  private void Awake()
   {
     animator = GetComponent<Animator>();
     rigidbody = GetComponent<Rigidbody2D>();
+    echoEffect = GetComponent<EchoEffect>();
   }
 
   override protected void Update()
@@ -38,7 +40,7 @@ public class PlayerPlatformerController : PhysicsObject
     {
       if (dashing)
       {
-        spriteRender.color = Color.yellow;
+        spriteRender.color = dashColor;
       }
       else
       {
@@ -53,6 +55,7 @@ public class PlayerPlatformerController : PhysicsObject
     {
       rigidbody.velocity /= 2;
       dashing = false;
+      echoEffect.StopEffect();
     }
 
     if (!dashing)
@@ -112,6 +115,7 @@ public class PlayerPlatformerController : PhysicsObject
         rigidbody.AddForce(mouseDir * dashSpeed, ForceMode2D.Impulse);
 
         dashingCounter = dashTime;
+        echoEffect.StartEffect();
         dashing = true;
         canDash = false;
       }
