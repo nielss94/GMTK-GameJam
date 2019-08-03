@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 773392043153491450}
   - component: {fileID: 773392043153491453}
   - component: {fileID: 6816329613074947744}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Basic enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   playerDetectionDistance: {x: 10, y: 4.5}
   playerDetectionRange: 5
   timeUntilNewPatrol: 6
+  seePlayerSpeedIncrease: 0
 --- !u!1 &1626753915784370224
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8430446191084541856}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -142,7 +143,7 @@ GameObject:
   - component: {fileID: 1647593934377510463}
   - component: {fileID: 8014976660232544045}
   - component: {fileID: 5796919031560991264}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpriteAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
