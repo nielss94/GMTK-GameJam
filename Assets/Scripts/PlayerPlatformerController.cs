@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerPlatformerController : PhysicsObject
 {
@@ -21,6 +22,7 @@ public class PlayerPlatformerController : PhysicsObject
   private float dashingCounter = 0f;
 
   private PlayerCombat playerCombat;
+  private CinemachineImpulseSource impulseSource;
 
   private void Awake()
   {
@@ -28,6 +30,7 @@ public class PlayerPlatformerController : PhysicsObject
     rigidbody = GetComponent<Rigidbody2D>();
     echoEffect = GetComponent<EchoEffect>();
     playerCombat = GetComponent<PlayerCombat>();
+    impulseSource = GetComponent<CinemachineImpulseSource>();
   }
 
   override protected void Update()
@@ -121,6 +124,7 @@ public class PlayerPlatformerController : PhysicsObject
         echoEffect.StartEffect();
         dashing = true;
         canDash = false;
+        impulseSource.GenerateImpulse();
       }
 
       animator.SetBool("grounded", grounded);
