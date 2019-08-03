@@ -7,19 +7,19 @@ public class PlayerCombat : MonoBehaviour
     public Spear spear;
     public GameObject gearedSpear;
 
-    [SerializeField]private Transform spearSpawnpoint;
+    [SerializeField]private Transform spearSpawnpoint = null;
 
-    [SerializeField]private bool wearingSpear;
+    [SerializeField]private bool wearingSpear = true;
     public bool chargingSpear;
     
     [SerializeField]private float chargedForce;
     [SerializeField]private float timeToMaxCharge;
     [SerializeField]private float throwForce = 30;
 
-    private PlayerPlatformerController playerController;
+    private PlayerPlatformerController playerController = null;
 
-    [SerializeField]private SpriteRenderer throwingHand;
-    [SerializeField]private SpriteRenderer leftHand;
+    [SerializeField]private SpriteRenderer throwingHand = null;
+    [SerializeField]private SpriteRenderer leftHand = null;
 
     private Spear currentSpear;
 
