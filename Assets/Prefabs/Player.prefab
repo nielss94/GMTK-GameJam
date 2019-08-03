@@ -220,6 +220,7 @@ MonoBehaviour:
   dashSpeed: 15
   dashTime: 0.2
   flipped: 0
+  dashColor: {r: 0.9960785, g: 0.87843144, b: 0.454902, a: 1}
 --- !u!50 &5566718224124238240
 Rigidbody2D:
   serializedVersion: 4
@@ -285,17 +286,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5566718224124238253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bea995a5de22ec4b89d6b4bf35530a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 030938f59db3048d69f4bdc6fd967f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spear: {fileID: 1586956678302187371, guid: e78d3befa970c5445ad10ffa7560e51c, type: 3}
-  gearedSpear: {fileID: 5566718224448162475}
-  spearSpawnpoint: {fileID: 0}
-  wearingSpear: 1
-  chargingSpear: 0
-  chargedForce: 0
-  timeToMaxCharge: 0
-  throwForce: 30
+  timeBetweenSpawns: 0.2
+  startTimeBetweenSpawns: 0
+  echo: {fileID: 5370167473035485637, guid: 28ada353e307f4c6a940d8921039b82e, type: 3}
 --- !u!1 &5566718224300314033
 GameObject:
   m_ObjectHideFlags: 0
