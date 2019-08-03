@@ -11,5 +11,5 @@ public class SpawnOptions : ScriptableObject {
 
     public float difficultyMultiplier;
 
-    public GameObject[] enemies;
+    public Enemy[] enemies;
 }

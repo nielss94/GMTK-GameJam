@@ -18,4 +18,4 @@ MonoBehaviour:
   maxEnemiesToSpawn: 7
   difficultyMultiplier: 2
   enemies:
-  - {fileID: 773392043153491441, guid: bddac7dc803604c6a96109009c0d6768, type: 3}
+  - {fileID: 2510543360541231209, guid: bddac7dc803604c6a96109009c0d6768, type: 3}

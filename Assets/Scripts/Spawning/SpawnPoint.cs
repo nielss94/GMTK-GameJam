@@ -14,17 +14,15 @@ public class SpawnPoint : MonoBehaviour
     public SpawnLevel spawnLevel;
     public bool available;
 
-    public void Spawn(GameObject enemy)
+    public void Spawn(Enemy enemy)
     {
         available = false;
         StartCoroutine(WaitAndSpawn(enemy));
     }
 
-    private IEnumerator WaitAndSpawn(GameObject enemy)
+    private IEnumerator WaitAndSpawn(Enemy enemy)
     {
-        print("ASD1");
         yield return new WaitForSeconds(2f);
-        print("ASD2");
         Instantiate(enemy, transform.position, Quaternion.identity);
         available = true;
     }

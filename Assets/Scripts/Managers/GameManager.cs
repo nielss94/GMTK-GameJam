@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     private SpawnManager spawnManager;
 
-    private int score;
+    [SerializeField]private int score;
 
     public SpawnLevel gameMode;
 
@@ -27,5 +27,11 @@ public class GameManager : MonoBehaviour
         spawnManager = FindObjectOfType<SpawnManager>();
     }
 
-
+    public void OnEnemyDeath(Enemy enemy)
+    {
+        enemy.OnDeath += () => {
+            score++;
+            OnScoreChanged(score);
+        };
+    }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SpawnManager : MonoBehaviour
     public SpawnOptions spawnOptions;
 
     private int currentWave = 1;
+
+    public event Action<Enemy> OnNewSpawn = delegate {};
 
     private void Start() {
         spawnpoints = FindObjectsOfType<SpawnPoint>().Where(sp => (int)sp.spawnLevel <= (int)GameManager.Instance.gameMode).ToArray();
@@ -34,24 +37,33 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        float timeBeforeNextWave = Random.Range(spawnOptions.minSpawnCooldown, spawnOptions.maxSpawnCooldown);
+        bool enemyOverflow = FindObjectsOfType<Enemy>().Length >= 40;
 
-        int randomEnemyAmount = Random.Range((int)spawnOptions.minEnemiesToSpawn, (int)spawnOptions.maxEnemiesToSpawn);
-        List<SpawnPoint> availableSpawns = FindAvailableSpawnpoints(randomEnemyAmount);
+
+        float timeBeforeNextWave = UnityEngine.Random.Range(spawnOptions.minSpawnCooldown, spawnOptions.maxSpawnCooldown);
+        
+        List<SpawnPoint> availableSpawns = null;
+        if(!enemyOverflow){
+            int randomEnemyAmount = UnityEngine.Random.Range((int)spawnOptions.minEnemiesToSpawn, (int)spawnOptions.maxEnemiesToSpawn);
+            availableSpawns = FindAvailableSpawnpoints(randomEnemyAmount);
+        }
 
         yield return new WaitForSeconds(timeBeforeNextWave);
 
-        if(currentWave % 5 == 0)
+        if(!enemyOverflow)
         {
-            IncreaseDifficulty();
-        }
+            if(currentWave % 15 == 0)
+            {
+                IncreaseDifficulty();
+            }
 
-        currentWave++;
-        
-        foreach (var spawn in availableSpawns)
-        {
-            int randomEnemyNumber = Random.Range(0,spawnOptions.enemies.Length);
-            spawn.Spawn(spawnOptions.enemies[randomEnemyNumber]);
+            currentWave++;
+            
+            foreach (var spawn in availableSpawns)
+            {
+                int randomEnemyNumber = UnityEngine.Random.Range(0,spawnOptions.enemies.Length);
+                spawn.Spawn(spawnOptions.enemies[randomEnemyNumber]);
+            }
         }
         StartCoroutine(SpawnEnemies());
     }
@@ -63,11 +75,10 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             SpawnPoint[] availableSpawns = spawnpoints.Where(sp => sp.available == true).ToArray();
-            print(availableSpawns.Length);
             if(availableSpawns.Length == 0)
                 break;
 
-            int randomNum = Random.Range(0,availableSpawns.Length);
+            int randomNum = UnityEngine.Random.Range(0,availableSpawns.Length);
             result.Add(availableSpawns[randomNum]);
         }
 
