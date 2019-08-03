@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718223932125978}
   - component: {fileID: 5566718223932125979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718224100462211}
   - component: {fileID: 5566718224100462208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,8 @@ GameObject:
   - component: {fileID: 5566718224124238240}
   - component: {fileID: 5566718224124238246}
   - component: {fileID: 1634208635}
-  m_Layer: 0
+  - component: {fileID: 1819257632}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,6 +275,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.08}
   m_Size: {x: 0.5, y: 1.14}
   m_Direction: 0
+--- !u!114 &1819257632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566718224124238253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bea995a5de22ec4b89d6b4bf35530a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spear: {fileID: 1586956678302187371, guid: e78d3befa970c5445ad10ffa7560e51c, type: 3}
+  gearedSpear: {fileID: 5566718224448162475}
+  wearingSpear: 1
+  chargingSpear: 0
+  chargedForce: 0
+  timeToMaxCharge: 0
+  throwForce: 5
 --- !u!1 &5566718224300314033
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718224300314038}
   - component: {fileID: 5566718224300314039}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718224305469142}
   - component: {fileID: 5566718224305469143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718224448162472}
   - component: {fileID: 5566718224448162473}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718224470044875}
   - component: {fileID: 5566718224470044872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718224993315951}
   - component: {fileID: 5566718224993315948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718225071233064}
   - component: {fileID: 5566718225071233065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566718225290408485}
   - component: {fileID: 5566718225290408538}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
