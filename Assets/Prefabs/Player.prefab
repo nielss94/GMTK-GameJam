@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 5566718224124238240}
   - component: {fileID: 5566718224124238246}
   - component: {fileID: 1634208635}
+  - component: {fileID: 196755491}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -218,6 +219,7 @@ MonoBehaviour:
   jumpTakeOffSpeed: 10
   dashSpeed: 15
   dashTime: 0.2
+  dashColor: {r: 0.9960785, g: 0.87843144, b: 0.454902, a: 1}
 --- !u!50 &5566718224124238240
 Rigidbody2D:
   serializedVersion: 4
@@ -274,6 +276,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.08}
   m_Size: {x: 0.5, y: 1.14}
   m_Direction: 0
+--- !u!114 &196755491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566718224124238253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030938f59db3048d69f4bdc6fd967f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenSpawns: 0.2
+  startTimeBetweenSpawns: 0
+  echo: {fileID: 5370167473035485637, guid: 28ada353e307f4c6a940d8921039b82e, type: 3}
 --- !u!1 &5566718224300314033
 GameObject:
   m_ObjectHideFlags: 0
