@@ -6,6 +6,7 @@ public class Spear : MonoBehaviour
 {
     private new Rigidbody2D rigidbody;
     public float gravityScale = 3;
+    [SerializeField]private GameObject onHitEffect;
 
     private void Awake() {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -20,7 +21,11 @@ public class Spear : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        //Collision with monsters
+        if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Instantiate(onHitEffect, other.transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+        }
     }
 
     public void TurnOff()

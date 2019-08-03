@@ -14,7 +14,7 @@ public class PlayerCombat : MonoBehaviour
     
     [SerializeField]private float chargedForce;
     [SerializeField]private float timeToMaxCharge;
-    [SerializeField]private float throwForce;
+    [SerializeField]private float throwForce = 30;
 
     private PlayerPlatformerController playerController;
 
