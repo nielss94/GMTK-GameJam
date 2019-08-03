@@ -24,7 +24,7 @@ public class Spear : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Instantiate(onHitEffect, other.transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
+            other.GetComponent<Enemy>().Die();
         }
     }
 
