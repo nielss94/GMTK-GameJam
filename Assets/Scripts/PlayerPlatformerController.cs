@@ -26,6 +26,7 @@ public class PlayerPlatformerController : PhysicsObject
 
     if (Input.GetButtonDown("Jump") && grounded)
     {
+      animator.SetTrigger("takeOff");
       velocity.y = jumpTakeOffSpeed;
     }
     else if (Input.GetButtonUp("Jump"))
