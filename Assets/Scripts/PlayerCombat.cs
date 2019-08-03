@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]private Transform spearSpawnpoint;
 
     [SerializeField]private bool wearingSpear;
-    [SerializeField]private bool chargingSpear;
+    public bool chargingSpear;
     
     [SerializeField]private float chargedForce;
     [SerializeField]private float timeToMaxCharge;
@@ -46,12 +46,14 @@ public class PlayerCombat : MonoBehaviour
             var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
             currentSpear.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            currentSpear.transform.position = transform.position;
+            currentSpear.transform.position = spearSpawnpoint.position;
+            HideLeftHand();
             if(Input.GetButtonUp("Fire1"))
             {
                 currentSpear.Throw(dir, throwForce);
                 currentSpear = null;
                 chargingSpear = false;
+                ShowLeftHand();
             }
         }
 
@@ -68,6 +70,17 @@ public class PlayerCombat : MonoBehaviour
                 playerController.FliptRight();
             }
         }   
+    }
+
+    public void ShowLeftHand()
+    {
+        throwingHand.enabled = false;
+        leftHand.enabled = true;
+    }
+
+    public void HideLeftHand(){
+        throwingHand.enabled = true;
+        leftHand.enabled = false;
     }
 
     public void PickUpSpear()

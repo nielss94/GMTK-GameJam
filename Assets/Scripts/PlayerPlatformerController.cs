@@ -20,11 +20,14 @@ public class PlayerPlatformerController : PhysicsObject
   private bool canDash = true;
   private float dashingCounter = 0f;
 
+  private PlayerCombat playerCombat;
+
   private void Awake()
   {
     animator = GetComponent<Animator>();
     rigidbody = GetComponent<Rigidbody2D>();
     echoEffect = GetComponent<EchoEffect>();
+    playerCombat = GetComponent<PlayerCombat>();
   }
 
   override protected void Update()
@@ -83,11 +86,11 @@ public class PlayerPlatformerController : PhysicsObject
         }
       }
 
-      if (move.x < -0.01f && !flipped)
+      if (move.x < -0.01f && !flipped && !playerCombat.chargingSpear)
       {
         FlipLeft();
       }
-      else if (move.x > 0.01f && flipped)
+      else if (move.x > 0.01f && flipped && !playerCombat.chargingSpear)
       {
         FliptRight();
       }
@@ -98,12 +101,12 @@ public class PlayerPlatformerController : PhysicsObject
         var mouseDir = mousePos - gameObject.transform.position;
         mouseDir.z = 0.0f;
 
-        if (mousePos.x < transform.position.x && !flipped)
+        if (mousePos.x < transform.position.x && !flipped && !playerCombat.chargingSpear)
         {
           FlipLeft();
         }
 
-        if (mousePos.x > transform.position.x && flipped)
+        if (mousePos.x > transform.position.x && flipped && !playerCombat.chargingSpear)
         {
           FliptRight();
         }
