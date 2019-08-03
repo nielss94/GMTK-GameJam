@@ -453,14 +453,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1819257632, guid: 46fece4b6a84e4c95a966efbe8caf7e5, type: 3}
-      propertyPath: throwForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1819257632, guid: 46fece4b6a84e4c95a966efbe8caf7e5, type: 3}
-      propertyPath: spearSpawnpoint
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46fece4b6a84e4c95a966efbe8caf7e5, type: 3}
 --- !u!4 &1634208633 stripped

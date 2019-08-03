@@ -219,6 +219,7 @@ MonoBehaviour:
   jumpTakeOffSpeed: 10
   dashSpeed: 15
   dashTime: 0.2
+  flipped: 0
 --- !u!50 &5566718224124238240
 Rigidbody2D:
   serializedVersion: 4
@@ -289,11 +290,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spear: {fileID: 1586956678302187371, guid: e78d3befa970c5445ad10ffa7560e51c, type: 3}
   gearedSpear: {fileID: 5566718224448162475}
+  spearSpawnpoint: {fileID: 0}
   wearingSpear: 1
   chargingSpear: 0
   chargedForce: 0
   timeToMaxCharge: 0
-  throwForce: 5
+  throwForce: 30
 --- !u!1 &5566718224300314033
 GameObject:
   m_ObjectHideFlags: 0
