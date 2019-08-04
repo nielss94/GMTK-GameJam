@@ -23,6 +23,8 @@ public class PlayerCombat : MonoBehaviour
 
     private Spear currentSpear;
 
+    private Vector3 throwDirection;
+
     public bool CanThrow = true;
 
     private void Awake()
@@ -48,14 +50,14 @@ public class PlayerCombat : MonoBehaviour
 
             if (!wearingSpear && chargingSpear && currentSpear != null)
             {
-                var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+                throwDirection = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+                var angle = Mathf.Atan2(throwDirection.y, throwDirection.x) * Mathf.Rad2Deg - 90;
                 currentSpear.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 currentSpear.transform.position = spearSpawnpoint.position;
                 HideLeftHand();
                 if (Input.GetButtonUp("Fire1"))
                 {
-                    currentSpear.Throw(dir, throwForce);
+                    currentSpear.Throw(throwDirection, throwForce);
                     currentSpear = null;
                     chargingSpear = false;
                     ShowLeftHand();
@@ -77,6 +79,14 @@ public class PlayerCombat : MonoBehaviour
             }
 
         }
+    }
+
+    public void Throw()
+    {
+        currentSpear.Throw(throwDirection, throwForce);
+        currentSpear = null;
+        chargingSpear = false;
+        ShowLeftHand();
     }
 
     public void ShowLeftHand()

@@ -42,9 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 2471049315
-    locked: 0
   - name: Enemy
     uniqueID: 2107583523
+    locked: 0
+  - name: Deathscreen
+    uniqueID: 1194794569
+    locked: 0
+  - name: Player
+    uniqueID: 2471049315
     locked: 0
