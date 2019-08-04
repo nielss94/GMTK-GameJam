@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1855,12 +1855,12 @@ PrefabInstance:
     - target: {fileID: 892733513688043093, guid: 00314ec5c36574f0ca5ee94fa139e8f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9000003
+      value: -2.1300004
       objectReference: {fileID: 0}
     - target: {fileID: 892733513688043093, guid: 00314ec5c36574f0ca5ee94fa139e8f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7000003
+      value: 20.304
       objectReference: {fileID: 0}
     - target: {fileID: 892733513688043093, guid: 00314ec5c36574f0ca5ee94fa139e8f8,
         type: 3}
@@ -3447,7 +3447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8999994, y: 6.1000004, z: -10.31}
+  m_LocalPosition: {x: -2.1300023, y: 15.880207, z: -10.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10661,12 +10661,12 @@ PrefabInstance:
     - target: {fileID: 5566718224124238242, guid: 46fece4b6a84e4c95a966efbe8caf7e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9
+      value: -2.13
       objectReference: {fileID: 0}
     - target: {fileID: 5566718224124238242, guid: 46fece4b6a84e4c95a966efbe8caf7e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7
+      value: 20.304
       objectReference: {fileID: 0}
     - target: {fileID: 5566718224124238242, guid: 46fece4b6a84e4c95a966efbe8caf7e5,
         type: 3}
@@ -13987,6 +13987,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6149843429764957983, guid: cfee38651f1839d45a337b3e010c1cd8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2214189705040135823, guid: cfee38651f1839d45a337b3e010c1cd8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15942,11 +15947,6 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 74723298052395633, guid: cfee38651f1839d45a337b3e010c1cd8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6149843429764957983, guid: cfee38651f1839d45a337b3e010c1cd8,
         type: 3}
       propertyPath: m_Layer
       value: 10
