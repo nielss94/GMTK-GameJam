@@ -33,6 +33,7 @@ public class PlayerPlatformerController : PhysicsObject
     echoEffect = GetComponent<EchoEffect>();
     playerCombat = GetComponent<PlayerCombat>();
     impulseSource = GetComponent<CinemachineImpulseSource>();
+    playerDeath = GetComponent<PlayerDeath>();
   }
 
   override protected void Update()
@@ -66,6 +67,7 @@ public class PlayerPlatformerController : PhysicsObject
         rigidbody.velocity /= 2;
         dashing = false;
         echoEffect.StopEffect();
+        playerDeath.CanDie = true;
       }
 
       if (!dashing)
@@ -126,6 +128,7 @@ public class PlayerPlatformerController : PhysicsObject
           dashingCounter = dashTime;
           echoEffect.StartEffect();
           dashing = true;
+          playerDeath.CanDie = false;
           canDash = false;
           impulseSource.GenerateImpulse();
         }
