@@ -20,17 +20,14 @@ public class SpawnPoint : MonoBehaviour
     private Transform portal;
     private new Light2D light;
 
-    private void Awake() {
-        portal.localScale = Vector3.zero;
-        light.intensity = 0;
-    }
-
-    private void OnValidate() {
+    private void Start() {
         portal = transform.GetChild(0);
         portal.GetComponent<MeshRenderer>().sortingLayerName = "Portal";
         light = portal.GetChild(0).GetComponent<Light2D>();
+        portal.localScale = Vector3.zero;
+        light.intensity = 0;
     }
-
+    
     private void Update() {
         if(light.intensity > 0 && available)
         {
