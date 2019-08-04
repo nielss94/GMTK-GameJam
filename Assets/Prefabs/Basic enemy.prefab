@@ -1,5 +1,76 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &550675930164551503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9041626398222418399}
+  - component: {fileID: 553915179883574465}
+  m_Layer: 15
+  m_Name: PlayerCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9041626398222418399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550675930164551503}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 773392043153491455}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &553915179883574465
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550675930164551503}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.23792362, y: 0.28096145}
+      - {x: 0.0898304, y: 0.4938755}
+      - {x: 0.004840851, y: 0.33457375}
+      - {x: -0.10779762, y: 0.4822693}
+      - {x: -0.17544365, y: 0.3864975}
+      - {x: -0.18689156, y: 0.4692402}
+      - {x: -0.40021706, y: 0.23755646}
+      - {x: -0.40760422, y: -0.46233273}
+      - {x: -0.3726368, y: -0.51896477}
+      - {x: 0.0019416809, y: -0.5234585}
+      - {x: 0.15475082, y: -0.5262823}
+      - {x: 0.32322502, y: -0.5163288}
+      - {x: 0.3741207, y: -0.49615097}
+      - {x: 0.37996483, y: -0.054885864}
+      - {x: 0.33014154, y: 0.2923481}
 --- !u!1 &773392043153491441
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +104,7 @@ Transform:
   m_Children:
   - {fileID: 1647593934377510463}
   - {fileID: 8430446191084541856}
+  - {fileID: 9041626398222418399}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
