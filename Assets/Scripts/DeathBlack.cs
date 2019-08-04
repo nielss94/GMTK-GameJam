@@ -22,5 +22,9 @@ public class DeathBlack : MonoBehaviour
     private void PlayAnimation()
     {
         spriteRenderer.DOFade(1f, 1f);
+        foreach (var item in FindObjectsOfType<ParticleSystem>())
+        {
+            item.GetComponent<Renderer>().enabled = false;
+        }
     }
 }
