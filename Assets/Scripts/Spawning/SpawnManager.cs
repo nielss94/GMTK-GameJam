@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     public SpawnOptions spawnOptions;
 
     private int currentWave = 1;
+    private bool firstRound = true;
 
     public event Action<Enemy> OnNewSpawn = delegate {};
 
@@ -47,9 +48,15 @@ public class SpawnManager : MonoBehaviour
             int randomEnemyAmount = UnityEngine.Random.Range((int)spawnOptions.minEnemiesToSpawn, (int)spawnOptions.maxEnemiesToSpawn);
             availableSpawns = FindAvailableSpawnpoints(randomEnemyAmount);
         }
+        
+        if(firstRound)
+        {
+            timeBeforeNextWave = 0.5f;
+            firstRound = false;
+        }
 
         yield return new WaitForSeconds(timeBeforeNextWave);
-
+    
         if(!enemyOverflow)
         {
             if(currentWave % 15 == 0)
