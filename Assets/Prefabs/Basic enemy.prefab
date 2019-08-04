@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 773392043153491453}
   - component: {fileID: 2510543360541231209}
   - component: {fileID: 6816329613074947744}
+  - component: {fileID: 4613824087669372709}
   m_Layer: 13
   m_Name: Basic enemy
   m_TagString: Untagged
@@ -167,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813b9b047bbe2f94aad7bad8fe2a6fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSoundGameObject: {fileID: 4657871027225018829, guid: 17bef10f732f740c9b15169cb65fa47f,
+    type: 3}
 --- !u!114 &6816329613074947744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +190,18 @@ MonoBehaviour:
   playerDetectionRange: 5
   timeUntilNewPatrol: 6
   seePlayerSpeedIncrease: 0
+--- !u!114 &4613824087669372709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773392043153491441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdb7d155dffa4707b81d49a7b044a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1626753915784370224
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +300,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2107583523
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b24504ba86f2943fc89006e2791b8145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}

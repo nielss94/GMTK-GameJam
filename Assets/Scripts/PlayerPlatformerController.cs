@@ -25,6 +25,7 @@ public class PlayerPlatformerController : PhysicsObject
   private PlayerCombat playerCombat;
   private CinemachineImpulseSource impulseSource;
   private PlayerDeath playerDeath;
+  private PlayerSFXPlayer playerSFXPlayer;
 
   private void Awake()
   {
@@ -34,6 +35,7 @@ public class PlayerPlatformerController : PhysicsObject
     playerCombat = GetComponent<PlayerCombat>();
     impulseSource = GetComponent<CinemachineImpulseSource>();
     playerDeath = GetComponent<PlayerDeath>();
+    playerSFXPlayer = GetComponent<PlayerSFXPlayer>();
   }
 
   override protected void Update()
@@ -84,6 +86,7 @@ public class PlayerPlatformerController : PhysicsObject
 
         if (Input.GetButtonDown("Jump") && grounded)
         {
+          playerSFXPlayer.PlayJump();
           animator.SetTrigger("takeOff");
           velocity.y = jumpTakeOffSpeed;
         }
@@ -131,6 +134,7 @@ public class PlayerPlatformerController : PhysicsObject
           playerDeath.CanDie = false;
           canDash = false;
           impulseSource.GenerateImpulse();
+          playerSFXPlayer.PlayDash();
         }
 
         animator.SetBool("grounded", grounded);
