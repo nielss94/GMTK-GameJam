@@ -157,8 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
-    m_AmplitudeGain: 1
+    m_RawSignal: {fileID: 11400000, guid: 3428bf8ae757c404f8af56ee13732769, type: 2}
+    m_AmplitudeGain: 1.4
     m_FrequencyGain: 1
     m_RepeatMode: 0
     m_Randomize: 1
