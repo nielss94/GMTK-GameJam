@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class UIManager : MonoBehaviour
   [SerializeField] private CanvasGroup gameOverCountGroup;
   [SerializeField] private CanvasGroup gameOverInputGroup;
   [SerializeField] private TextMeshProUGUI gameOverKillCounter;
+
+  [SerializeField] private GameObject gamePanel;
+  [SerializeField] private TextMeshProUGUI gameKillCounter;
+  [SerializeField] private Image killIcon;
 
   private GameManager gameManager;
   private PlayerDeath playerDeath;
@@ -49,6 +54,13 @@ public class UIManager : MonoBehaviour
   private void ScoreChanged(int score)
   {
     gameOverKillCounter.text = score + "";
+    gameKillCounter.text = score + "";
+
+
+    Sequence sequence = DOTween.Sequence();
+    sequence.Append(killIcon.rectTransform.DOScale(new Vector2(1.2f, 1.2f), 0.5f));
+    sequence.Append(killIcon.rectTransform.DOScale(new Vector2(1f, 1f), 0.5f));
+    sequence.Play();
   }
 
   private void PlayGameOver()
@@ -65,6 +77,7 @@ public class UIManager : MonoBehaviour
     gameOverInputGroup.alpha = 0;
     gameOverCountGroup.alpha = 0;
     gameOverPanel.SetActive(true);
+    gamePanel.SetActive(false);
 
     yield return new WaitForSeconds(1.25f);
 
