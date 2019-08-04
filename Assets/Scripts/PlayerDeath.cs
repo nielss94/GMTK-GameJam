@@ -15,8 +15,12 @@ public class PlayerDeath : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("PlayerDeath"))
             {
                 isDeath = true;
-                GetComponent<Animator>().SetTrigger("death");
                 GetComponent<Rigidbody2D>().isKinematic = true;
+                GetComponent<Rigidbody2D>().gravityScale = 0;
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<PlayerPlatformerController>().CanMove = false;
+                GetComponent<PlayerCombat>().CanThrow = false;
+                GetComponent<Animator>().SetTrigger("death");
                 OnPlayerDeath?.Invoke();
             }
         }

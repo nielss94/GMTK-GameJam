@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
 public class PlayerPlatformerController : PhysicsObject
 {
@@ -16,6 +16,7 @@ public class PlayerPlatformerController : PhysicsObject
   private new Rigidbody2D rigidbody;
   private EchoEffect echoEffect;
 
+  public bool CanMove = true;
   public bool flipped = false;
   private bool dashing = false;
   private bool canDash = true;
@@ -23,6 +24,7 @@ public class PlayerPlatformerController : PhysicsObject
 
   private PlayerCombat playerCombat;
   private CinemachineImpulseSource impulseSource;
+  private PlayerDeath playerDeath;
 
   private void Awake()
   {
@@ -57,81 +59,83 @@ public class PlayerPlatformerController : PhysicsObject
 
   protected override void ComputeVelocity()
   {
-    if (dashing && dashingCounter <= 0)
+    if (CanMove)
     {
-      rigidbody.velocity /= 2;
-      dashing = false;
-      echoEffect.StopEffect();
-    }
-
-    if (!dashing)
-    {
-      if (grounded && !canDash && !dashing)
+      if (dashing && dashingCounter <= 0)
       {
-        canDash = true;
-        rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+        rigidbody.velocity /= 2;
+        dashing = false;
+        echoEffect.StopEffect();
       }
 
-      Vector2 move = Vector2.zero;
-
-      move.x = Input.GetAxis("Horizontal");
-
-      if (Input.GetButtonDown("Jump") && grounded)
+      if (!dashing)
       {
-        animator.SetTrigger("takeOff");
-        velocity.y = jumpTakeOffSpeed;
-      }
-      else if (Input.GetButtonUp("Jump"))
-      {
-        if (velocity.y > 0)
+        if (grounded && !canDash && !dashing)
         {
-          velocity.y = velocity.y * 0.5f;
+          canDash = true;
+          rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
         }
-      }
 
-      if (move.x < -0.01f && !flipped && !playerCombat.chargingSpear)
-      {
-        FlipLeft();
-      }
-      else if (move.x > 0.01f && flipped && !playerCombat.chargingSpear)
-      {
-        FliptRight();
-      }
+        Vector2 move = Vector2.zero;
 
-      if (canDash && Input.GetButtonDown("Dash"))
-      {
-        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var mouseDir = mousePos - gameObject.transform.position;
-        mouseDir.z = 0.0f;
+        move.x = Input.GetAxis("Horizontal");
 
-        if (mousePos.x < transform.position.x && !flipped && !playerCombat.chargingSpear)
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+          animator.SetTrigger("takeOff");
+          velocity.y = jumpTakeOffSpeed;
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+          if (velocity.y > 0)
+          {
+            velocity.y = velocity.y * 0.5f;
+          }
+        }
+
+        if (move.x < -0.01f && !flipped && !playerCombat.chargingSpear)
         {
           FlipLeft();
         }
-
-        if (mousePos.x > transform.position.x && flipped && !playerCombat.chargingSpear)
+        else if (move.x > 0.01f && flipped && !playerCombat.chargingSpear)
         {
           FliptRight();
         }
 
-        mouseDir = mouseDir.normalized;
+        if (canDash && Input.GetButtonDown("Dash"))
+        {
+          var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+          var mouseDir = mousePos - gameObject.transform.position;
+          mouseDir.z = 0.0f;
 
+          if (mousePos.x < transform.position.x && !flipped && !playerCombat.chargingSpear)
+          {
+            FlipLeft();
+          }
 
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.AddForce(mouseDir * dashSpeed, ForceMode2D.Impulse);
+          if (mousePos.x > transform.position.x && flipped && !playerCombat.chargingSpear)
+          {
+            FliptRight();
+          }
 
-        dashingCounter = dashTime;
-        echoEffect.StartEffect();
-        dashing = true;
-        canDash = false;
-        impulseSource.GenerateImpulse();
+          mouseDir = mouseDir.normalized;
+
+          rigidbody.velocity = Vector2.zero;
+          rigidbody.AddForce(mouseDir * dashSpeed, ForceMode2D.Impulse);
+
+          dashingCounter = dashTime;
+          echoEffect.StartEffect();
+          dashing = true;
+          canDash = false;
+          impulseSource.GenerateImpulse();
+        }
+
+        animator.SetBool("grounded", grounded);
+        animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+        animator.SetBool("dashing", dashing);
+
+        targetVelocity = move * maxSpeed;
       }
-
-      animator.SetBool("grounded", grounded);
-      animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
-      animator.SetBool("dashing", dashing);
-
-      targetVelocity = move * maxSpeed;
     }
   }
 
