@@ -5,38 +5,53 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+  public static GameManager Instance;
 
-    private SpawnManager spawnManager;
+  private SpawnManager spawnManager;
+  private PlayerDeath playerDeath;
 
-    [SerializeField]private int score;
+  [SerializeField] private int score;
 
-    public Difficulty gameMode;
+  public Difficulty gameMode;
 
-    public event Action<int> OnScoreChanged = delegate{};
+  public event Action<int> OnScoreChanged = delegate { };
 
-    private void Awake() {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-        else{
-            Destroy(gameObject);
-            return;
-        }
-        spawnManager = FindObjectOfType<SpawnManager>();
-    }
+  private bool gameOver = false;
 
-    public void OnEnemyDeath(Enemy enemy)
+  private void Awake()
+  {
+    if (Instance == null)
     {
-        enemy.OnDeath += () => {
-            score++;
-            OnScoreChanged(score);
-        };
+      Instance = this;
     }
-
-    public void SetGameMode(Difficulty difficulty)
+    else
     {
-        gameMode = difficulty;
+      Destroy(gameObject);
+      return;
     }
+    spawnManager = FindObjectOfType<SpawnManager>();
+    playerDeath = FindObjectOfType<PlayerDeath>();
+  }
+
+  private void Start()
+  {
+    playerDeath.OnPlayerDeath += () => gameOver = true;
+  }
+
+  public void OnEnemyDeath(Enemy enemy)
+  {
+    enemy.OnDeath += () =>
+    {
+      if (!gameOver)
+      {
+        score++;
+        OnScoreChanged(score);
+      }
+    };
+  }
+
+  public void SetGameMode(Difficulty difficulty)
+  {
+    gameMode = difficulty;
+  }
 }

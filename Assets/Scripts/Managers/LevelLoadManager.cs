@@ -5,36 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoadManager : MonoBehaviour
 {
-    public static LevelLoadManager Instance;
+  public static LevelLoadManager Instance;
 
-    private void Awake() {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else{
-            Destroy(gameObject);
-            return;
-        }
-    }
-
-    public void LoadGame(Difficulty difficulty)
+  private void Awake()
+  {
+    if (Instance == null)
     {
-        StartCoroutine(LoadGameAsync(difficulty));
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
     }
-
-    private IEnumerator LoadGameAsync(Difficulty difficulty)
+    else
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
-
-        while(!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        GameManager.Instance.SetGameMode(difficulty);
+      Destroy(gameObject);
+      return;
     }
+  }
+
+  public void LoadMainMenu()
+  {
+    SceneManager.LoadScene("Menu");
+  }
+
+  public void LoadGame(Difficulty difficulty)
+  {
+    StartCoroutine(LoadGameAsync(difficulty));
+  }
+
+  private IEnumerator LoadGameAsync(Difficulty difficulty)
+  {
+    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
+
+    while (!asyncLoad.isDone)
+    {
+      yield return null;
+    }
+
+    GameManager.Instance.SetGameMode(difficulty);
+  }
 
 
 }
