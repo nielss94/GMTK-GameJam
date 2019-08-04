@@ -5,15 +5,19 @@ using System;
 
 public class Enemy : MonoBehaviour
 {
-    public event Action OnDeath = delegate {};
+  [SerializeField] private GameObject deathSoundGameObject;
 
-    private void Awake() {
-        GameManager.Instance.OnEnemyDeath(this);
-    }
+  public event Action OnDeath = delegate { };
 
-    public void Die()
-    {
-        OnDeath();
-        Destroy(gameObject);
-    }
+  private void Awake()
+  {
+    GameManager.Instance.OnEnemyDeath(this);
+  }
+
+  public void Die()
+  {
+    OnDeath();
+    Instantiate(deathSoundGameObject, transform.position, Quaternion.identity).GetComponent<EnemySFXPlayer>().PlayImpact();
+    Destroy(gameObject);
+  }
 }
