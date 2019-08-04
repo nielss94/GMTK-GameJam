@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Experimental.Rendering.LWRP;
+
 
 public enum Difficulty
 {
@@ -16,14 +18,29 @@ public class SpawnPoint : MonoBehaviour
     public bool available;
 
     private Transform portal;
+    private new Light2D light;
 
     private void Awake() {
         portal.localScale = Vector3.zero;
+        light.intensity = 0;
     }
 
     private void OnValidate() {
         portal = transform.GetChild(0);
-        portal.GetComponent<MeshRenderer>().sortingOrder = 15;
+        portal.GetComponent<MeshRenderer>().sortingLayerName = "Portal";
+        light = portal.GetChild(0).GetComponent<Light2D>();
+    }
+
+    private void Update() {
+        if(light.intensity > 0 && available)
+        {
+            light.intensity = Mathf.Lerp(light.intensity, 0, 2 * Time.deltaTime);
+        }
+
+        if(light.intensity < 1 && !available)
+        {
+            light.intensity = Mathf.Lerp(light.intensity, 1, 2 * Time.deltaTime);
+        }
     }
 
     public void Spawn(Enemy enemy)

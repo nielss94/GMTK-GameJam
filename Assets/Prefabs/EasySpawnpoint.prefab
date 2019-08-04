@@ -116,7 +116,42 @@ PrefabInstance:
     - target: {fileID: 8047211746129607995, guid: d69f5ff721f01984db3b8169c5837d94,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 15
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047211746129607995, guid: d69f5ff721f01984db3b8169c5837d94,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -681878109
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047211746129607995, guid: d69f5ff721f01984db3b8169c5837d94,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 976682128473695017, guid: d69f5ff721f01984db3b8169c5837d94,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6761573
+      objectReference: {fileID: 0}
+    - target: {fileID: 976682128473695017, guid: d69f5ff721f01984db3b8169c5837d94,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.26713243
+      objectReference: {fileID: 0}
+    - target: {fileID: 976682128473695017, guid: d69f5ff721f01984db3b8169c5837d94,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 976682128473695017, guid: d69f5ff721f01984db3b8169c5837d94,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 2.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 976682128473695017, guid: d69f5ff721f01984db3b8169c5837d94,
+        type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.93
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d69f5ff721f01984db3b8169c5837d94, type: 3}
