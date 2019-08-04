@@ -25,6 +25,16 @@ public class PlayerDeath : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
+    DooDDinG(other);
+  }
+
+  private void OnTriggerStay2D(Collider2D other) 
+  {
+    DooDDinG(other);
+  }
+
+  private void DooDDinG(Collider2D other)
+  {
     if (!isDeath && CanDie)
     {
       if (other.gameObject.layer == LayerMask.NameToLayer("PlayerDeath"))
