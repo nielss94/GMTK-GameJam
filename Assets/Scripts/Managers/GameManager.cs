@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]private int score;
 
-    public SpawnLevel gameMode;
+    public Difficulty gameMode;
 
     public event Action<int> OnScoreChanged = delegate{};
 
@@ -33,5 +33,10 @@ public class GameManager : MonoBehaviour
             score++;
             OnScoreChanged(score);
         };
+    }
+
+    public void SetGameMode(Difficulty difficulty)
+    {
+        gameMode = difficulty;
     }
 }

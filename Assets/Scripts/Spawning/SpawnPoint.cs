@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public enum SpawnLevel
+public enum Difficulty
 {
     Easy,
     Medium,
@@ -12,7 +12,7 @@ public enum SpawnLevel
 
 public class SpawnPoint : MonoBehaviour
 {
-    public SpawnLevel spawnLevel;
+    public Difficulty spawnLevel;
     public bool available;
 
     private Transform portal;

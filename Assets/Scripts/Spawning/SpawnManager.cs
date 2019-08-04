@@ -23,13 +23,13 @@ public class SpawnManager : MonoBehaviour
     {
         switch(GameManager.Instance.gameMode)
         {
-            case SpawnLevel.Easy:
+            case Difficulty.Easy:
                 spawnOptions = Instantiate(Resources.Load<SpawnOptions>("SpawnOptions/Easy"));
             break;
-            case SpawnLevel.Medium:
+            case Difficulty.Medium:
                 spawnOptions = Instantiate(Resources.Load<SpawnOptions>("SpawnOptions/Medium"));
             break;
-            case SpawnLevel.Hard:
+            case Difficulty.Hard:
                 spawnOptions = Instantiate(Resources.Load<SpawnOptions>("SpawnOptions/Hard"));
             break;
         }
